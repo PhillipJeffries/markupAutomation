@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(212, 231, 231);
+    font-size: 20px;
+}
+
+.swiper {
+    width: 600px;
+    height: 300px;
+    border: 1px solid black;
+  }
+
+.swiper-slide {
+    border: 5px rgb(255, 250, 240) solid;
+    text-align: center;
+    
+    box-sizing: border-box;
+}

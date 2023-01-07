@@ -1,0 +1,71 @@
+<div class="rr-widget rr-active"
+  <div class="rr-items rr-swiper-container">
+    <h3 class="rr-items__widget-title"><%= (headerText) %></h3>
+    <div class="rr-swiper-wrapper">
+      <% for (var i = 0 ; i < numberOfItems; ++i) with(items[i]) { %>
+      <div class="rr-swiper-slide" data-item-id="<%=ItemId%>">
+        <div class="rr-item">
+          <div class="rr-item__image">
+            <a class="rr-item__info" href="<%=Url%>" onmousedown='rrApi.recomMouseDown(<%=ItemId%>, { suggester: "<%=suggesterId%>", methodName: "<%=algorithm%>" });'>
+              <img class="swiper-lazy" data-src="https://apod.nasa.gov/apod/image/2109/SunSpotHill_Coy_960.jpg">
+              <div class="swiper-lazy-preloader"></div>
+            </a>
+          </div>
+          <div class=rr-item__bottom>
+            <div class="rr-item__name-block">
+              <a class="rr-item__info rr-item__title" href="<%=Url%>" onmousedown='rrApi.recomMouseDown(<%=ItemId%>, { suggester: "<%=suggesterId%>", methodName: "<%=algorithm%>" });'>
+                <% if (Name.length > 26) { %>
+                <%=Name.substr(0,26)+('...') %>
+                <% } else { %>
+                <%=Name %>
+                <% } %>
+              </a>
+            </div>
+            <div class="rr-item__article">
+              Код:
+              <span class="rr-item__article-num">
+                <%= Params['ID товара на сайте'] %>
+              </span>
+                
+            </div>
+            <div class="rr-item__block-price">
+              <div class="rr-item__price-values">
+                <% if (OldPrice) {%>
+                  <div class="rr-item__old-price">
+                    <span class="rr-item__old-price-value">
+                      <%= OldPrice%>
+                      <span class="rr-item__old-price-priececurrency"></span>
+                    </span>
+                    <div class="rr-item__discount">
+                      -<%= Math.round(100 - (Price / OldPrice) * 100) %>%
+                    </div>
+                  </div>
+                <% } %>
+                <div class="rr-item__price">
+                  <span class="rr-item__price-value">
+                    <%= Price %>
+                  </span>
+                  <span class="rr-item__price-currency"></span>
+                </div>
+              </div>
+              <div class="rr-items__add-cart">
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="rr-slider-arrow">
+    <a class="rr-arrow swiper-prev">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.828 7.00002L16 7.00001L16 9.00001L3.828 9.00002L9.192 14.364L7.778 15.778L-3.39987e-07 8.00002L7.778 0.222015L9.192 1.63601L3.828 7.00002Z" fill="white"></path></svg>
+    </a>
+    <a class="rr-arrow swiper-next">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.828 7.00002L16 7.00001L16 9.00001L3.828 9.00002L9.192 14.364L7.778 15.778L-3.39987e-07 8.00002L7.778 0.222015L9.192 1.63601L3.828 7.00002Z" fill="white"></path></svg>
+    
+    </a>
+  </div>
+</div>
